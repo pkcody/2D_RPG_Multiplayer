@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4181386450050311482}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -196,6 +196,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5863760696289917043}
     m_Modifications:
+    - target: {fileID: 631062325723640740, guid: 39698edb043886c46ad25e33b875fe9b, type: 3}
+      propertyPath: m_text
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 5394812279587307761, guid: 39698edb043886c46ad25e33b875fe9b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
