@@ -63,6 +63,15 @@ public class PlayerController : MonoBehaviourPun
             weaponAnim.transform.parent.localScale = new Vector3(1, 1, 1);
         else
             weaponAnim.transform.parent.localScale = new Vector3(-1, 1, 1);
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+            if (gold >= 100)
+            {
+                GameManager.instance.gameEnd = true;
+                GameManager.instance.photonView.RPC("WinGame", RpcTarget.All, id);
+            }
+        }
     }
 
     void Move()
@@ -147,4 +156,6 @@ public class PlayerController : MonoBehaviourPun
         // update the ui
         GameUI.instance.UpdateGoldText(gold);
     }
+
+
 }

@@ -7,6 +7,7 @@ using TMPro;
 public class GameUI : MonoBehaviour
 {
     public TextMeshProUGUI goldText;
+    public TextMeshProUGUI winText;
     // instance
     public static GameUI instance;
     void Awake()
@@ -17,5 +18,10 @@ public class GameUI : MonoBehaviour
     public void UpdateGoldText(int gold)
     {
         goldText.text = "<b>Gold:</b> " + gold;
+    }
+    public void SetWinText(string winnerName)
+    {
+        winText.gameObject.SetActive(true);
+        winText.text = winnerName + " Wins the Iron Throne!";
     }
 }
