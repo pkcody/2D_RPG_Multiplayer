@@ -52,6 +52,15 @@ public class PlayerController : MonoBehaviourPun
 
     void Update()
     {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            if (gold >= 100 && !GameManager.instance.gameEnd)
+            {
+                GameManager.instance.gameEnd = true;
+                GameManager.instance.photonView.RPC("WinGame", RpcTarget.All, id);
+            }
+        }
+
         if (!photonView.IsMine)
             return;
         Move();
@@ -64,14 +73,7 @@ public class PlayerController : MonoBehaviourPun
         else
             weaponAnim.transform.parent.localScale = new Vector3(-1, 1, 1);
 
-        if (PhotonNetwork.IsMasterClient)
-        {
-            if (gold >= 100)
-            {
-                GameManager.instance.gameEnd = true;
-                GameManager.instance.photonView.RPC("WinGame", RpcTarget.All, id);
-            }
-        }
+        
     }
 
     void Move()
