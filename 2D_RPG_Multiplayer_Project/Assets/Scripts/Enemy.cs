@@ -73,6 +73,9 @@ public class Enemy : MonoBehaviourPun
             // loop through all the players
             foreach (PlayerController player in GameManager.instance.players)
             {
+                if (!player)
+                    continue;
+
                 // calculate distance between us and the player
                 float dist = Vector2.Distance(transform.position, player.transform.position);
                 if (player == targetPlayer)

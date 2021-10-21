@@ -52,10 +52,6 @@ public class PlayerController : MonoBehaviourPun
 
     void Update()
     {
-        //if (PhotonNetwork.IsMasterClient)
-        //{
-            
-        //}
 
         if (!photonView.IsMine)
             return;
@@ -156,9 +152,7 @@ public class PlayerController : MonoBehaviourPun
 
         if (gold >= 100)
         {
-            GameManager.instance.gameEnd = true;
             GameManager.instance.photonView.RPC("WinGame", RpcTarget.All, id);
-            Debug.Log("if if fififjfifi");
         }
     }
 
